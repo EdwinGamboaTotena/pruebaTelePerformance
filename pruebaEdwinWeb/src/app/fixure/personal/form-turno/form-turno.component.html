@@ -1,0 +1,100 @@
+<form #ngForm="ngForm" [formGroup]="formTurno" (ngSubmit)="registrarTurno()">
+    <div class="row ">
+
+        <div class="form-group row col col-sm-12 col-lg-6"
+            [ngClass]="{'has-danger': erroresService.errores(formTurno, 'usuario', ngForm).hayErrores}">
+            <label for="usuario" class="col-form-label col-lg-4">Usuario<span class="text-danger">*</span></label>
+
+            <select formControlName="usuario" name="usuario" class="form-control  col-lg-8">
+                <option [ngValue]="null">Seleccione Usuario</option>
+                <option *ngFor="let usuario of usuarios" [ngValue]="usuario._id">
+                    {{ usuario.nombre }}
+                </option>
+            </select>
+
+            <div class="form-control-feedback col-sm-12"
+                *ngIf="erroresService.errores(formTurno, 'usuario', ngForm).hayErrores">
+                La fecha inicio es requerida.
+            </div>
+        </div>
+
+        <div class="form-group row col col-sm-12 col-lg-6"
+            [ngClass]="{'has-danger': erroresService.errores(formTurno, 'fechaInicio', ngForm).hayErrores}">
+            <label for="fechaInicio" class="col-form-label col-lg-4">Fecha Inicio <span
+                    class="text-danger">*</span></label>
+            <input type="date" class="col form-control col-lg-8" formControlName="fechaInicio">
+            <div class="form-control-feedback col-sm-12"
+                *ngIf="erroresService.errores(formTurno, 'fechaInicio', ngForm).hayErrores">
+                La fecha inicio es requerida.
+            </div>
+        </div>
+
+        <div class="form-group row col col-sm-12 col-lg-6"
+            [ngClass]="{'has-danger': erroresService.errores(formTurno, 'fechaFin', ngForm).hayErrores}">
+            <label for="fechaFin" class="col-form-label col-lg-4">Fecha Fin <span class="text-danger">*</span></label>
+            <input type="date" class="col form-control col-lg-8" formControlName="fechaFin">
+            <div class="form-control-feedback col-sm-12"
+                *ngIf="erroresService.errores(formTurno, 'fechaFin', ngForm).hayErrores">
+                La fecha final es requerida.
+            </div>
+        </div>
+
+        <div class="form-group row col col-sm-12 col-lg-6"
+            [ngClass]="{'has-danger': erroresService.errores(formTurno, 'horarioInicioTurno', ngForm).hayErrores}">
+            <label for="horarioInicioTurno" class="col-form-label col-lg-4">Horario Inicio Turno <span
+                    class="text-danger">*</span></label>
+            <input type="time" class="col form-control col-lg-8" formControlName="horarioInicioTurno">
+            <div class="form-control-feedback col-sm-12"
+                *ngIf="erroresService.errores(formTurno, 'horarioInicioTurno', ngForm).hayErrores">
+                La hora de inicio del turno es requerida.
+            </div>
+        </div>
+
+        <div class="form-group row col col-sm-12 col-lg-6"
+            [ngClass]="{'has-danger': erroresService.errores(formTurno, 'horarioFinTurno', ngForm).hayErrores}">
+            <label for="horarioFinTurno" class="col-form-label col-lg-4">Horario Fin Turno <span
+                    class="text-danger">*</span></label>
+            <input type="time" class="col form-control col-lg-8" formControlName="horarioFinTurno">
+            <div class="form-control-feedback col-sm-12"
+                *ngIf="erroresService.errores(formTurno, 'horarioFinTurno', ngForm).hayErrores">
+                La hora de finalizacion del turno es requerida.
+            </div>
+        </div>
+
+        <div class="form-group row col col-sm-12 col-lg-6"
+            [ngClass]="{'has-danger': erroresService.errores(formTurno, 'horarioInicioHoraExtra', ngForm).hayErrores}">
+            <label for="horarioInicioHoraExtra" class="col-form-label col-lg-4">Horario Inicio Hora Extra<span
+                    class="text-danger">*</span></label>
+            <input type="time" class="col form-control col-lg-8" formControlName="horarioInicioHoraExtra">
+            <div class="form-control-feedback col-sm-12"
+                *ngIf="erroresService.errores(formTurno, 'horarioInicioHoraExtra', ngForm).hayErrores">
+                La hora de inicio de la hora extra es requerida.
+            </div>
+        </div>
+
+        <div class="form-group row col col-sm-12 col-lg-6"
+            [ngClass]="{'has-danger': erroresService.errores(formTurno, 'horarioFinHoraExtra', ngForm).hayErrores}">
+            <label for="horarioFinHoraExtra" class="col-form-label col-lg-4">Horario Finalizacion Hora Extra<span
+                    class="text-danger">*</span></label>
+            <input type="time" class="col form-control col-lg-8" formControlName="horarioFinHoraExtra">
+            <div class="form-control-feedback col-sm-12"
+                *ngIf="erroresService.errores(formTurno, 'horarioFinHoraExtra', ngForm).hayErrores">
+                La hora de finalizacion de la hora extra es requerida.
+            </div>
+        </div>
+
+        <div class="form-group row col col-sm-12 col-lg-6"
+            [ngClass]="{'has-danger': erroresService.errores(formTurno, 'motivoHoraExtra', ngForm).hayErrores}">
+            <label for="motivoHoraExtra" class="col-form-label col-lg-4">Motivo Hora Extra<span
+                    class="text-danger">*</span></label>
+            <input type="text" class="col form-control col-lg-8" formControlName="motivoHoraExtra">
+            <div class="form-control-feedback col-sm-12"
+                *ngIf="erroresService.errores(formTurno, 'motivoHoraExtra', ngForm).hayErrores">
+                El motivo de las horas extra es requerido.
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success  ml-2">Guardar</button>
+    </div>
+
+</form>

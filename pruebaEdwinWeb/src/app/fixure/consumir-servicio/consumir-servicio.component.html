@@ -1,0 +1,28 @@
+<div class="container">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th class="text-center">ID</th>
+                <th class="text-center">NOMBRE</th>
+                <th class="text-center">ADDRESS</th>
+                <th class="text-center">EMAIL</th>
+                <th class="text-center">PHONE</th>
+                <th class="text-center">WEB SITE</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuariosExternos">
+                <td class="text-center align-middle">{{usuario.id}}</td>
+                <td class="text-center align-middle">{{usuario.name}}</td>
+                <td class="text-center align-middle">{{usuario.address.street}} {{usuario.address.suite}} </td>
+                <td class="text-center align-middle">{{usuario.email}}</td>
+                <td class="text-center align-middle">{{usuario.phone}}</td>
+                <td class="text-center align-middle">
+                    <a target="_blank" [href]="usuario.website" class="btn btn-success">
+                        <i class="fas fa-globe"></i> </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
